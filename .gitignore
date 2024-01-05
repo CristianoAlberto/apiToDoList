@@ -1,0 +1,69 @@
+# Arquivos e pastas gerados durante a compilação
+bin/
+obj/
+
+# Pasta de dependências
+packages/
+
+# Arquivos de configuração
+*.suo
+*.user
+*.sln.docstates
+project.lock.json
+.vscode/
+
+# Logs e arquivos temporários
+*.log
+*.swp
+Thumbs.db
+[Tt]humbs.db
+ehthumbs.db
+
+# Arquivos de saída das ferramentas
+[Tt]est[Rr]esult*/
+[Bb]in/
+[Dd]ebug/
+[Ii]p/
+*.exe
+*.dll
+*.pdb
+
+# Pasta do Rider
+.idea/
+*.suo
+*.user
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+*.suo
+*.user
+*.sln.docstates
