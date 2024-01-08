@@ -13,9 +13,8 @@ namespace toDoList
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new ToDoListMap());
             base.OnModelCreating(modelBuilder);
-
-            // Adicione aqui eventuais configurações adicionais do modelo
         }
     }
 }
