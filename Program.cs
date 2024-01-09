@@ -9,9 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
+    options.AddPolicy("AllowSpecificOrigin",
         builder => builder
-            .AllowAnyOrigin()
+            .WithOrigins("http://localhost:8080") // Defina a origem específica
             .AllowAnyMethod()
             .AllowAnyHeader());
 });
@@ -37,6 +37,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 
 }
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 
