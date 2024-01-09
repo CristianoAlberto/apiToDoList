@@ -24,6 +24,31 @@ namespace toDoList
             return Ok(tasks);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ToDoListModel>> GetByIdAsync(int id)
+        {
+            ToDoListModel task = await _toDoListRepository.GetByIdAsync(id);
+            return Ok(task);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ToDoListModel>> Create([FromBody] ToDoListModel task)
+        {
+            ToDoListModel taskCreate = await _toDoListRepository.CreateAsync(task);
+            return Ok(taskCreate);
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ToDoListModel>> Update([FromBody] ToDoListModel task, [FromRoute] int id)
+        {
+            ToDoListModel taskUpdate = await _toDoListRepository.UpdateAsync(task, id);
+            return Ok(taskUpdate);
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ToDoListModel>> Delete([FromRoute] int id)
+        {
+            bool result = await _toDoListRepository.DeleteOneAsync(id);
+            return Ok(result);
+        }
     }
 }
 
