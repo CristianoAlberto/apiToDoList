@@ -10,7 +10,7 @@ using toDoList;
 namespace toDoList.Data.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20240105125642_FirstModelMigration")]
+    [Migration("20240110151235_FirstModelMigration")]
     partial class FirstModelMigration
     {
         /// <inheritdoc />
@@ -32,7 +32,8 @@ namespace toDoList.Data.Migrations
 
                     b.Property<string>("taskName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("id");
 

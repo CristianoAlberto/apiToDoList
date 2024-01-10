@@ -29,7 +29,8 @@ namespace toDoList.Data.Migrations
 
                     b.Property<string>("taskName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("id");
 

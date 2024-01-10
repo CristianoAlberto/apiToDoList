@@ -9,11 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder
-            .WithOrigins("http://localhost:8080") // Defina a origem específica
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+    options.AddPolicy("AllowAny",
+            builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
 });
 
 string mysqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -38,7 +39,7 @@ if (app.Environment.IsDevelopment())
 
 }
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowAny");
 
 app.UseHttpsRedirection();
 

@@ -20,7 +20,7 @@ namespace toDoList.Data.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    taskName = table.Column<string>(type: "longtext", nullable: false)
+                    taskName = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     status = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
