@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,7 +50,9 @@ public class ToDoListRepository : IToDoListRepository
 
     public async Task<List<ToDoListModel>> GetAllAsync()
     {
-        return await _dbContext.ToDoListData.ToListAsync();
+        List<ToDoListModel> allTasks = await _dbContext.ToDoListData.ToListAsync();
+        List<ToDoListModel> incompleteTasks = allTasks.Where(task => task.status == false).ToList();
+        return incompleteTasks;
     }
 
     public async Task<ToDoListModel> GetByIdAsync(int id)
